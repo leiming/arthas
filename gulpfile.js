@@ -7,7 +7,6 @@ var buffer = require('vinyl-buffer')
 var plugins = require('gulp-load-plugins')()
 
 var watchify = require('watchify')
-var reactify = require('reactify')
 var babelify = require('babelify')
 require("babelify/polyfill")
 var browserify_shim = require('browserify-shim')
