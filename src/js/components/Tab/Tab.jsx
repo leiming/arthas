@@ -7,35 +7,45 @@ import classNames from 'classnames';
 class Tab extends React.Component {
 
   static defaultProps = {
-    className: 'tab'
+    tabCls: 'tab'
+  };
+
+  state = {
+    activeIndex: 0
   };
 
   constructor(prop) {
     super(prop);
+    this.state.activeIndex = prop.activeIndex || 0;
   }
 
-
   getTabLink = (children) => {
-    console.log(children);
-    return React.Children.map(children, function (child) {
+    const activeIndex = this.state.activeIndex;
+    return React.Children.map(children, function (child, index) {
       if (child.type == TabPane) {
         return React.createElement('li', {
-          className: `${this.props.prefix}${this.props.className}-link`,
-          onClick: this.clickTabLinkHandler
+          className: classNames({
+            [this.props.className ]: true,
+            [`${this.props.prefix}${this.props.tabCls}-link`]: true,
+            ['active']: (activeIndex === index)
+          }),
+          'data-index': index,
+          onClick: this.clickTabLinkHandler.bind(this, index)
         }, child.props.tabName)
       }
     }.bind(this))
   };
 
-  clickTabLinkHandler = (event) => {
-    console.log(event.currentTarget);
-
+  clickTabLinkHandler = (index) => {
+    this.setState({'activeIndex': index});
   };
 
   getTabPane(children) {
-    return React.Children.map(children, function (child) {
+    let paneProp = Object.assign({}, this.state, this.props);
+
+    return React.Children.map(children, function (child, index) {
       if (child.type == TabPane) {
-        return React.cloneElement(child, child.props);
+        return React.cloneElement(child, Object.assign({index: index}, paneProp, child.props));
       }
       return <span>null</span>
     })

@@ -1,13 +1,14 @@
-@dropdownPrefix: ~"@{prefix}-dropdown";
-@dropdownContainerPrefix: ~"@{dropdownPrefix}-container";
+@dropdown: ~"@{prefix}-dropdown";
+@dropdownContainer: ~"@{dropdown}-container";
 
-.@{dropdownContainerPrefix} {
+.@{dropdownContainer} {
+  position: absolute;
   color: lavender;
 }
 
-.@{dropdownPrefix} {
+.@{dropdown} {
   color: white;
-
+  position: relative;
   &-btn {
     padding: 2px 10px;
     .border-radius(3px);
@@ -22,9 +23,9 @@
   }
 
   &-content {
-    display: none;
-    &.visible{
-      display: block;
+    display: block;
+    &.hidden{
+      display: none!important;
     }
   }
 }

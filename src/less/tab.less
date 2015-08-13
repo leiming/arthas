@@ -1,0 +1,26 @@
+@tab: ~"@{prefix}-tab";
+@tabLink: ~"@{tab}-link";
+@tabPane: ~"@{tab}-pane";
+
+.@{tabLink} {
+  color: white;
+  display: inline-block;
+  padding: 0 5px;
+  border-right: 1px solid white;
+
+  &:last-child {
+    border-right: inherit;
+  }
+
+  &.active {
+    color: red;
+  }
+}
+
+.@{tabPane} {
+  background-color: #2980b9;
+  display: none;
+  &.active {
+    display: block;
+  }
+}

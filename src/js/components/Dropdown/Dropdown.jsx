@@ -16,49 +16,39 @@ export default class Dropdown extends React.Component {
 
   state = {isOpen: false};
 
-  /**
-   * 获取内容元素
-   * @param children
-   * @returns {*}
-   */
   getDropdownContent = (children) => {
 
     let child = React.Children.only(children);
-    let styleName = Object.assign({
-      position: "absolute"
-    }, child.props.style);
 
-    let childProps = {
+    const childProps = {
       className: classNames(`${this.props.prefix}${this.props.className}-content`, {
-        visible: !!this.state.isOpen
+        hidden: !this.state.isOpen
       }),
-      style: styleName
+      style: child.props.style
     };
 
     return React.cloneElement(child, childProps);
   };
 
-  setVisible = (isVisible) => {
-    this.setState({isOpen: !!isVisible})
+
+  clickHandler = (e) => {
+    /***
+     * @BUG 连续点击（如三击）导致多触发
+     */
+    console.log(this.state);
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({isOpen: !this.state.isOpen});
   };
 
-  /**
-   * render
-   * @returns {XML}
-   */
   render() {
-    console.log(this.props);
+
     let label = React.createElement('a', {
       className: `${this.props.prefix}${this.props.className}-${this.props.elementType || 'label'}`,
-      onClick: (e) => {
-        e.preventDefault();
-        this.setVisible(!this.state.isOpen);
-      }
+      onClick: this.clickHandler
     }, this.props.label);
 
-    let styleName = {position: "relative", display: 'inline-block'};
     return <div
-      style={styleName}
       className={classNames(`${this.props.prefix}${this.props.className}` ,{
       visible: this.state.isOpen})}
       >
