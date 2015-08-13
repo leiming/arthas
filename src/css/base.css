@@ -1,0 +1,77 @@
+body {
+  background: grey;
+}
+
+li {
+  list-style: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, textarea {
+  /*font-family: Helvetica, Arial, Tahoma, "Microsoft YaHei", simsun, sans-serif;*/
+  _font-family: simsun, sans-serif;
+  font: 12px/1.125 Microsoft YaHei;
+}
+
+/* http://ued.taobao.org/blog/2012/08/inline-block/ */
+
+ul.inline-wrap {
+  font-size: 0; /* 所有浏览器 */
+  *word-spacing: -1px; /* IE6、7 */
+}
+
+ul.inline-wrap li {
+  font-size: 12px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* firefox 中 letter-spacing 会导致脱离普通流的元素水平位移 */
+  ul.inline-wrap {
+    letter-spacing: -5px; /* Safari 等不支持字体大小为 0 的浏览器, N 根据父级字体调节*/
+  }
+}
+
+ul.inline-wrap li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* inline-block end */
+
+/* 修复 IE 6 7，Firefox 的虚框 */
+a {
+  text-decoration: none;
+  outline: none; /* for Forefox */
+}
+
+a {
+  star: expression(this.onFocus=this.blur()); /* for Ie*/
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.color-red {
+  color: red !important;
+}
+
+.color-dodgerblue {
+  color: dodgerblue !important;
+}
+
+.color-orange {
+  color: #FF6640 !important;
+}
+
+.color-purple {
+  color: #f0266d !important;
+}

@@ -1,0 +1,9 @@
+@import url("base.css");
+
+
+#toolbar {
+  background: white;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+}
