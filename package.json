@@ -4,7 +4,8 @@
   "description": "arthas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm install -g nodemon",
+    "serve": "nodemon server.js localhost 3000"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,9 @@
     "gulp-utf8ize-sourcemaps": "^0.1.0",
     "gulp-util": "^3.0.6",
     "handlebars": "^3.0.3",
+    "koa": "^0.21.0",
+    "koa-router": "^5.1.2",
+    "koa-static": "^1.4.9",
     "less-plugin-autoprefix": "^1.4.2",
     "react": "^0.13.3",
     "run-sequence": "^1.1.1",

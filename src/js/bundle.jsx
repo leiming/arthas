@@ -9,11 +9,14 @@ let prefix = 'yx-';
 /**
  * Toolbar Logo
  */
-import Logo from "./components/Logo";
+import Logo from "./business/Logo";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Dropdown from "./components/Dropdown/Dropdown";
+import Notice from "./components/Notice/Notice";
 import Tab from "./components/Tab/Tab";
 var TabPane = Tab.TabPane;
+
+import UserInfo from "./business/UserInfo/UserInfo";
 
 export default class Toolbar extends React.Component {
 
@@ -26,21 +29,29 @@ export default class Toolbar extends React.Component {
       "width": "300",
       "height": "200",
       "background": "darkgreen",
-      "color": "red"
+      "color": "red",
+      "position": "absolute"
     };
     return (
       <div>
-        <Logo/>
-        <Dropdown label={"区服列表"} {...this.props} elementType={'btn'}>
-          <div style={divStyle} className="custom1">
-            <ul>
-              <li>asdf</li>
-              <li>asdf</li>
-              <li>ddd</li>
-            </ul>
-            dddd
-          </div>
-        </Dropdown>
+        <div className="toolbar-l">
+          <Logo/>
+          <Dropdown label={"花千骨是啥"} {...this.props} elementType={'btn'}>
+            <div style={divStyle} className="custom1">
+              <label></label>
+              <ul>
+                <li>asdf</li>
+                <li>asdf</li>
+                <li>ddd</li>
+              </ul>
+            </div>
+          </Dropdown>
+          <Notice/>
+        </div>
+        
+        <div className="toolbar-r">
+          <Btn/>
+        </div>
       </div>
     )
   }

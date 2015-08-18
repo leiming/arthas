@@ -207,11 +207,17 @@ gulp.task('build', function (done) {
 });
 
 gulp.task('default', ['build'], function () {
+
+
   browserSync.init({
-    server: {
-      baseDir: [dirs.dist],
-      index: outputFile + '.html'
+    proxy: {
+      target: "http://localhost:3000",
     }
+    // server: {
+    //  baseDir: [dirs.dist],
+    //  index: outputFile + '.html',
+    //  middleware: [proxy(proxyOptions)]
+    // }
   })
 })
 
