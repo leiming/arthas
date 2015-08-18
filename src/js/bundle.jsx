@@ -21,10 +21,6 @@ export default class Toolbar extends React.Component {
     prefix: prefix
   };
 
-  outerOnChange(event) {
-    console.log(event.target.checked);
-  }
-
   render() {
     let divStyle = {
       "width": "300",
@@ -33,10 +29,9 @@ export default class Toolbar extends React.Component {
       "color": "red"
     };
     return (
-      <div>Toolbar
+      <div>
         <Logo/>
-        <Checkbox defaultChecked={true} onChange={this.outerOnChange}/>
-        <Dropdown label={"出息"} {...this.props} elementType={'btn'}>
+        <Dropdown label={"区服列表"} {...this.props} elementType={'btn'}>
           <div style={divStyle} className="custom1">
             <ul>
               <li>asdf</li>
@@ -46,17 +41,17 @@ export default class Toolbar extends React.Component {
             dddd
           </div>
         </Dropdown>
-        <Dropdown label={"晕死"} {...this.props} elementType={'btn'}>
-          <Tab  style={divStyle} prefix={prefix}>
-            <TabPane tabName="one">One</TabPane>
-            <TabPane tabName="two">Two</TabPane>
-            <TabPane tabName="three">Three</TabPane>
-          </Tab>
-        </Dropdown>
       </div>
     )
   }
 }
+// <Dropdown label={"晕死"} {...this.props} elementType={'btn'}>
+//   <Tab  style={divStyle} prefix={prefix}>
+//     <TabPane tabName="one">One</TabPane>
+//     <TabPane tabName="two">Two</TabPane>
+//     <TabPane tabName="three">Three</TabPane>
+//   </Tab>
+// </Dropdown>
 
 //React.render(<Tab prefix={prefix}>
 //  <TabPane tabName="one">One</TabPane>
