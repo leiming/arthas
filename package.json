@@ -45,6 +45,7 @@
     "koa-router": "^5.1.2",
     "koa-static": "^1.4.9",
     "less-plugin-autoprefix": "^1.4.2",
+    "nodemon": "^1.4.1",
     "react": "^0.13.3",
     "run-sequence": "^1.1.1",
     "vinyl-buffer": "^1.0.0",

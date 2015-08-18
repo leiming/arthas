@@ -211,7 +211,7 @@ gulp.task('default', ['build'], function () {
 
   browserSync.init({
     proxy: {
-      target: "http://localhost:3000",
+      target: "http://localhost:3000"
     }
     //server: {
     //  baseDir: [dirs.dist],

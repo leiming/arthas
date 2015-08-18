@@ -45,22 +45,21 @@ export default class Toolbar extends React.Component {
               <li>asdf</li>
               <li>ddd</li>
             </ul>
-            dddd
           </div>
         </Dropdown>
         <Dropdown label={"晕死"} {...this.props} elementType={'btn'}>
-          <Tab  style={divStyle} prefix={prefix}>
-            <TabPane tabName="one">One</TabPane>
-            <TabPane tabName="two">Two</TabPane>
-            <TabPane tabName="three">Three</TabPane>
-          </Tab>
+            <Tab style={divStyle} prefix={prefix}>
+              <TabPane tabName="one">One</TabPane>
+              <TabPane tabName="two">Two</TabPane>
+              <TabPane tabName="three">Three</TabPane>
+            </Tab>
         </Dropdown>
         <UserInfo/>
       </div>
     )
   }
 }
-
+//
 //React.render(<Tab prefix={prefix}>
 //  <TabPane tabName="one">One</TabPane>
 //  <TabPane tabName="two">Two</TabPane>
