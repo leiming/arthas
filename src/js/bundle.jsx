@@ -9,11 +9,13 @@ let prefix = 'yx-';
 /**
  * Toolbar Logo
  */
-import Logo from "./components/Logo";
+import Logo from "./business/Logo";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Tab from "./components/Tab/Tab";
 var TabPane = Tab.TabPane;
+
+import UserInfo from "./business/UserInfo/UserInfo";
 
 export default class Toolbar extends React.Component {
 
@@ -53,6 +55,7 @@ export default class Toolbar extends React.Component {
             <TabPane tabName="three">Three</TabPane>
           </Tab>
         </Dropdown>
+        <UserInfo/>
       </div>
     )
   }
