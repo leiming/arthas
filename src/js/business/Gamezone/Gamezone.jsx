@@ -9,7 +9,7 @@ export default class Checkbox extends React.Component {
   }
 
   render() {
-    return '';
+    return (<a href="#">全部游戏</a>);
   }
 
 }

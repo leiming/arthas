@@ -10,7 +10,11 @@ let prefix = 'yx-';
  * Toolbar Logo
  */
 import Logo from "./business/Logo";
+import Chat from "./business/Chat/Chat";
+import Gamezone from "./business/Gamezone/Gamezone";
+import Package from "./business/Package/Package";
 import UserInfo from "./business/UserInfo/UserInfo";
+
 import Checkbox from "./components/Checkbox/Checkbox";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Notice from "./components/Notice/Notice";
@@ -49,12 +53,24 @@ export default class Toolbar extends React.Component {
         </div>
         <div className="toolbar-r">
           <UserInfo/>
-          <a href="#" className="closeBtn">关闭</a>
+          <a href="#" className="saveid-btn">保存账号</a>
+          <a href="#" className="qd-btn">签到</a>
+          <ul className="ul-list">
+            <li><Package/></li>
+            <li><a href="#">社区</a></li>
+            <li><a href="#">秀场</a></li>
+            <li><a href="#">充值</a></li>
+            <li><Chat/></li>
+            <li><Gamezone/></li>
+          </ul>
+          <a href="#" className="close-btn">关闭</a>
         </div>
       </div>
     )
   }
 }
+
+
 // <Dropdown label={"晕死"} {...this.props} elementType={'btn'}>
 //   <Tab  style={divStyle} prefix={prefix}>
 //     <TabPane tabName="one">One</TabPane>

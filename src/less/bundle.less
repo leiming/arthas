@@ -6,7 +6,7 @@
 @import "tab";
 
 #toolbar {
-  color: white;
+  color: #c7c7c7;
   .gradient(top, #666666, #1c1c1c);
   height: 40px;
   line-height: 40px;
@@ -26,6 +26,7 @@
   height: 40px;
   line-height: 40px;
 }
+
 .toolbar-logo {
   display: inline-block;
   vertical-align: top;
@@ -41,7 +42,27 @@
   margin-left: 100px;
   display: inline-block;
 }
-.toolbar-r .closeBtn {
+.toolbar-userInfo {
+  margin-right: 20px;
+}
+.toolbar-r .saveid-btn,
+.toolbar-r .qd-btn {
+  display: inline-block;
+  width: 58px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background-color: #383c40;
+  color: #c7c7c7;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-right: 10px;
+  &:hover {
+    background-color: #53565b;
+  }
+}
+
+.toolbar-r .close-btn {
   display: inline-block;
   vertical-align: top;
   text-indent: -999px;
@@ -49,4 +70,18 @@
   height: 40px;
   border-left: 1px solid #6c6c6c;
   background: url(../img/toolbar-closeBtn.png) no-repeat center center;
+  &:hover {
+    background-color: #3b3e41;
+  }
+}
+.toolbar-r .ul-list {
+  display: inline-block;
+}
+.toolbar-r .ul-list li {
+  display: inline-block;
+  margin: 0 10px;
+  
+}
+.toolbar-r .ul-list li a {
+  color: #c7c7c7;
 }
