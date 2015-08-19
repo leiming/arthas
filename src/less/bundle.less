@@ -5,13 +5,19 @@
 @import "dropdown";
 @import "tab";
 
-#toolbar {
+.toolbar-wrap {
   color: #c7c7c7;
   .gradient(top, #666666, #1c1c1c);
-  height: 40px;
+  height: 0;
+  overflow: hidden;
   line-height: 40px;
   padding: 0 0 0 20px;
   vertical-align: middle;
+  transition: all .5s ease-in;
+  &.visible {
+    height: 40px;
+    overflow: visible;
+  }
 }
 
 .toolbar-l {
@@ -19,6 +25,7 @@
 }
 .toolbar-r {
   float: right;
+  margin-right: 200px;
 }
 
 #toolbar .yx-dropdown{
@@ -33,6 +40,7 @@
   width: 121px;
   height: 40px;
   margin-right: 25px;
+  text-indent: -9999px;
   background: url(../img/toolbar-logo.png) no-repeat center center;
 }
 .toolbar-notice {
@@ -66,6 +74,7 @@
   display: inline-block;
   vertical-align: top;
   text-indent: -999px;
+  overflow: hidden;
   width: 40px;
   height: 40px;
   border-left: 1px solid #6c6c6c;
