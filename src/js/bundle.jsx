@@ -19,12 +19,24 @@ import Checkbox from "./components/Checkbox/Checkbox";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Notice from "./components/Notice/Notice";
 import Tab from "./components/Tab/Tab";
+
+import classNames from 'classnames';
+
 var TabPane = Tab.TabPane;
 
 export default class Toolbar extends React.Component {
 
   static defaultProps = {
     prefix: prefix
+  };
+
+  state = {isOpen: true};
+
+  closeHandler = (e) => {
+    console.log(this.state);
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({isOpen: !this.state.isOpen});
   };
 
   render() {
@@ -36,7 +48,7 @@ export default class Toolbar extends React.Component {
       "position": "absolute"
     };
     return (
-      <div className="toolbar-wrap">
+      <div className={classNames("toolbar-wrap", {visible: this.state.isOpen})}>
         <div className="toolbar-l">
           <Logo/>
           <Dropdown label={"花千骨是啥"} {...this.props} elementType={'btn'}>
@@ -63,27 +75,12 @@ export default class Toolbar extends React.Component {
             <li><Chat/></li>
             <li><Gamezone/></li>
           </ul>
-          <a href="#" className="close-btn">关闭</a>
+          <a href="#" className="close-btn" onClick={this.closeHandler}>关闭</a>
         </div>
       </div>
     )
   }
 }
-
-
-// <Dropdown label={"晕死"} {...this.props} elementType={'btn'}>
-//   <Tab  style={divStyle} prefix={prefix}>
-//     <TabPane tabName="one">One</TabPane>
-//     <TabPane tabName="two">Two</TabPane>
-//     <TabPane tabName="three">Three</TabPane>
-//   </Tab>
-// </Dropdown>
-
-//React.render(<Tab prefix={prefix}>
-//  <TabPane tabName="one">One</TabPane>
-//  <TabPane tabName="two">Two</TabPane>
-//  <TabPane tabName="three">Three</TabPane>
-//</Tab>, document.getElementById('test'));
 
 React.render(<Toolbar />, document.getElementById('toolbar'));
 
