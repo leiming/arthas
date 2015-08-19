@@ -6,7 +6,9 @@ import classNames from 'classnames';
 export default class Dropdown extends React.Component {
 
   static defaultProps = {
-    className: 'dropdown'
+    className: 'dropdown',
+    activeMethod: 'click',
+    elementType: 'label'
   };
 
   constructor(props) {
@@ -49,31 +51,52 @@ export default class Dropdown extends React.Component {
     this.setState({isOpen: !!visible});
   };
 
-  clickHandler = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  onClick = (e) => {
     /***
      * @BUG 连续点击（如三击）导致多触发
      */
     const openState = !this.state.isOpen;
-    if (openState) {
-      this.bindOuter()
-    } else {
-      this.unbindOuter()
-    }
+      if (openState) {
+        this.bindOuter()
+      } else {
+        this.unbindOuter()
+      }
     this.setVisible(openState);
+    e.preventDefault();
+    e.stopPropagation();
   };
 
+  onMouseEnter = (e) => {
+    this.setVisible(true);
+  };
+
+  onMouseLeave = (e) => {
+    this.setVisible(false);
+  };
+
+
   render() {
-    let label = React.createElement('a', {
-      className: `${this.props.prefix}${this.props.className}-${this.props.elementType || 'label'}`,
-      onClick: this.clickHandler
-    }, this.props.label);
+
+    let labelProp = {
+      className: `${this.props.prefix}${this.props.className}-${this.props.elementType}`
+    };
+    const activeMethod = this.props.activeMethod;
+    const containerProps = {};
+
+    if (activeMethod.indexOf('click') !== -1) {
+      labelProp.onClick = this.onClick;
+    }
+
+    if (activeMethod.indexOf('hover') !== -1) {
+      containerProps.onMouseEnter = this.onMouseEnter;
+      containerProps.onMouseLeave = this.onMouseLeave;
+    }
+
+    const label = React.createElement('a', labelProp, this.props.label);
 
     return <span
-      className={classNames(`${this.props.prefix}${this.props.className}` ,{
-      visible: this.state.isOpen})}
-      >
+      className={classNames(`${this.props.prefix}${this.props.className}`,{
+      visible: this.state.isOpen})} {...containerProps} >
       {label}
       {this.getDropdownContent(this.props.children)}
     </span>

@@ -52,8 +52,19 @@ export default class Toolbar extends React.Component {
         </div>
         <div className="toolbar-r">
           <UserInfo/>
+
           <a href="#" className="saveid-btn">保存账号</a>
           <a href="#" className="qd-btn">签到</a>
+          <Dropdown label={"礼包"} {...this.props} elementType={'label'} activeMethod={'hover'}>
+            <div style={divStyle} className="custom1">
+              <label></label>
+              <ul>
+                <li>asdf</li>
+                <li>asdf</li>
+                <li>ddd</li>
+              </ul>
+            </div>
+          </Dropdown>
           <ul className="ul-list">
             <li><Package/></li>
             <li><a href="#">社区</a></li>

@@ -12,7 +12,7 @@ export default class UserInfo extends React.Component {
 
   componentDidMount() {
     var data = {
-      avatar: 'http://npm.360-game.net/-/logo',
+      avatar: 'http://www.lai0791.com/SJM/youxi/index/logo.png',
       uid: '1101'
     };
 
