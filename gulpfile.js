@@ -210,14 +210,14 @@ gulp.task('default', ['build'], function () {
 
 
   browserSync.init({
-    proxy: {
-      target: "http://localhost:3000",
-    }
-    // server: {
-    //  baseDir: [dirs.dist],
-    //  index: outputFile + '.html',
-    //  middleware: [proxy(proxyOptions)]
+    // proxy: {
+    //   target: "http://localhost:3000"
     // }
+    server: {
+     baseDir: [dirs.dist],
+     index: outputFile + '.html'
+     // middleware: [proxy(proxyOptions)]
+    }
   })
 })
 

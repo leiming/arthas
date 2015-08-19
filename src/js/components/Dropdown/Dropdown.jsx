@@ -1,6 +1,5 @@
 "use strict";
 
-
 import React from 'react';
 import classNames from 'classnames';
 
@@ -42,18 +41,17 @@ export default class Dropdown extends React.Component {
   };
 
   render() {
-
     let label = React.createElement('a', {
       className: `${this.props.prefix}${this.props.className}-${this.props.elementType || 'label'}`,
       onClick: this.clickHandler
     }, this.props.label);
 
-    return <div
+    return <span
       className={classNames(`${this.props.prefix}${this.props.className}` ,{
       visible: this.state.isOpen})}
       >
       {label}
       {this.getDropdownContent(this.props.children)}
-    </div>
+    </span>
   }
 }

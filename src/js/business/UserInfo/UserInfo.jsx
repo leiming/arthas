@@ -11,7 +11,7 @@ export default class UserInfo extends React.Component {
   };
 
   componentDidMount() {
-    $.get('/users/uid123', function (data) {
+    $.get('/users/uid123sfsf', function (data) {
       this.setState(data);
     }.bind(this))
   }

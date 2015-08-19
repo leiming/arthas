@@ -10,13 +10,12 @@ let prefix = 'yx-';
  * Toolbar Logo
  */
 import Logo from "./business/Logo";
+import UserInfo from "./business/UserInfo/UserInfo";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Notice from "./components/Notice/Notice";
 import Tab from "./components/Tab/Tab";
 var TabPane = Tab.TabPane;
-
-import UserInfo from "./business/UserInfo/UserInfo";
 
 export default class Toolbar extends React.Component {
 
@@ -33,7 +32,7 @@ export default class Toolbar extends React.Component {
       "position": "absolute"
     };
     return (
-      <div>
+      <div className="toolbar-wrap">
         <div className="toolbar-l">
           <Logo/>
           <Dropdown label={"花千骨是啥"} {...this.props} elementType={'btn'}>
@@ -48,9 +47,9 @@ export default class Toolbar extends React.Component {
           </Dropdown>
           <Notice/>
         </div>
-        
         <div className="toolbar-r">
-          <Btn/>
+          <UserInfo/>
+          <a href="#" className="closeBtn">关闭</a>
         </div>
       </div>
     )
