@@ -1,14 +1,12 @@
 "use strict";
 
 require("babel/polyfill");
+//require('./components/utils/addEventListener-polyfill');
 
 import React from "react";
 
 let prefix = 'yx-';
 
-/**
- * Toolbar Logo
- */
 import Logo from "./business/Logo";
 import Chat from "./business/Chat/Chat";
 import Gamezone from "./business/Gamezone/Gamezone";
@@ -20,6 +18,7 @@ import Dropdown from "./components/Dropdown/Dropdown";
 import Notice from "./components/Notice/Notice";
 import Tab from "./components/Tab/Tab";
 var TabPane = Tab.TabPane;
+
 
 export default class Toolbar extends React.Component {
 
@@ -70,7 +69,6 @@ export default class Toolbar extends React.Component {
   }
 }
 
-
 // <Dropdown label={"晕死"} {...this.props} elementType={'btn'}>
 //   <Tab  style={divStyle} prefix={prefix}>
 //     <TabPane tabName="one">One</TabPane>
@@ -79,11 +77,6 @@ export default class Toolbar extends React.Component {
 //   </Tab>
 // </Dropdown>
 
-//React.render(<Tab prefix={prefix}>
-//  <TabPane tabName="one">One</TabPane>
-//  <TabPane tabName="two">Two</TabPane>
-//  <TabPane tabName="three">Three</TabPane>
-//</Tab>, document.getElementById('test'));
 
 React.render(<Toolbar />, document.getElementById('toolbar'));
 

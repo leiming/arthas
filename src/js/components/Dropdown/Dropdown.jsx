@@ -29,15 +29,39 @@ export default class Dropdown extends React.Component {
     return React.cloneElement(child, childProps);
   };
 
+  bindOuter = () => {
+    $(document).on('click', this.onDocumentClick);
+  };
+
+  unbindOuter = () => {
+    $(document).off('click', this.onDocumentClick);
+  };
+
+  onDocumentClick = (e) => {
+    const componentNode = React.findDOMNode(this);
+    const isContain = componentNode.contains(e.target);
+    if (!isContain) {
+      this.setVisible(false);
+    }
+  };
+
+  setVisible = (visible) => {
+    this.setState({isOpen: !!visible});
+  };
 
   clickHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     /***
      * @BUG 连续点击（如三击）导致多触发
      */
-    console.log(this.state);
-    e.preventDefault();
-    e.stopPropagation();
-    this.setState({isOpen: !this.state.isOpen});
+    const openState = !this.state.isOpen;
+    if (openState) {
+      this.bindOuter()
+    } else {
+      this.unbindOuter()
+    }
+    this.setVisible(openState);
   };
 
   render() {
