@@ -39,25 +39,33 @@ export default class Toolbar extends React.Component {
   };
 
   render() {
-    let divStyle = {
-      "width": "300",
-      "height": "200",
-      "background": "darkgreen",
-      "color": "red",
-      "position": "absolute"
-    };
+    
     return (
       <div className={classNames("toolbar-wrap", {visible: this.state.isOpen})}>
         <div className="toolbar-l">
           <Logo/>
-          <Dropdown label={"花千骨是啥"} {...this.props} elementType={'btn'}>
-            <div style={divStyle} className="custom1">
-              <label></label>
-              <ul>
-                <li>asdf</li>
-                <li>asdf</li>
-                <li>ddd</li>
-              </ul>
+          <Dropdown label={"花千骨——不删档15服"} isOpen={false} {...this.props} elementType={'btn'}>
+            <div className="gamezone-list">
+              <div className="gamezone-section">
+                <label>最近登录</label>
+                <ul>
+                  <li className="active"><a href="#">双线977服-福寿齐天</a></li>
+                  <li><a href="#">双线931服-一劳永逸</a></li>
+                </ul>
+              </div>
+              <hr/>
+              <div className="gamezone-section">
+                <label>最新开服</label>
+                <ul>
+                <li><a href="#">双线977服-如雷灌耳</a></li>
+                <li><a href="#">双线931服-生龙活虎</a></li>
+                <li><a href="#">双线931服-生龙活虎</a></li>
+                <li><a href="#">双线931服-生龙活虎</a></li>
+                </ul>
+              </div>
+              <div className="gamezone-section allzones">
+                <a href="#">全部服务器 ></a>
+              </div>
             </div>
           </Dropdown>
           <Notice/>
@@ -67,16 +75,7 @@ export default class Toolbar extends React.Component {
 
           <a href="#" className="saveid-btn">保存账号</a>
           <a href="#" className="qd-btn">签到</a>
-          <Dropdown label={"礼包"} {...this.props} elementType={'label'} activeMethod={'hover'}>
-            <div style={divStyle} className="custom1">
-              <label></label>
-              <ul>
-                <li>asdf</li>
-                <li>asdf</li>
-                <li>ddd</li>
-              </ul>
-            </div>
-          </Dropdown>
+          
           <ul className="ul-list">
             <li><Package/></li>
             <li><a href="#">社区</a></li>

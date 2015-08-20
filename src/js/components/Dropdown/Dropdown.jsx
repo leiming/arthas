@@ -15,7 +15,7 @@ export default class Dropdown extends React.Component {
     super(props);
   }
 
-  state = {isOpen: false};
+  state = {isOpen: this.props.isOpen};
 
   getDropdownContent = (children) => {
 
@@ -24,7 +24,7 @@ export default class Dropdown extends React.Component {
     const childProps = {
       className: classNames(`${this.props.prefix}${this.props.className}-content`, {
         hidden: !this.state.isOpen
-      }),
+      }, [child.props.className]),
       style: child.props.style
     };
 
@@ -93,12 +93,11 @@ export default class Dropdown extends React.Component {
     }
 
     const label = React.createElement('a', labelProp, this.props.label);
-
-    return <span
+    return <div
       className={classNames(`${this.props.prefix}${this.props.className}`,{
       visible: this.state.isOpen})} {...containerProps} >
       {label}
       {this.getDropdownContent(this.props.children)}
-    </span>
+    </div>
   }
 }

@@ -6,16 +6,17 @@
 @import "tab";
 
 .toolbar-wrap {
+  min-width: 960px;
   color: #c7c7c7;
   .gradient(top, #666666, #1c1c1c);
   height: 0;
   overflow: hidden;
-  line-height: 40px;
   padding: 0 0 0 20px;
   vertical-align: middle;
   transition: all .5s ease-in;
   &.visible {
     height: 40px;
+    line-height: 40px;
     overflow: visible;
   }
 }
@@ -25,13 +26,11 @@
 }
 .toolbar-r {
   float: right;
-  margin-right: 200px;
 }
 
 #toolbar .yx-dropdown{
   display: inline-block;
   height: 40px;
-  line-height: 40px;
 }
 
 .toolbar-logo {
@@ -43,12 +42,34 @@
   text-indent: -9999px;
   background: url(../img/toolbar-logo.png) no-repeat center center;
 }
+
+//公告列表
 .toolbar-notice {
   height: 40px;
+  margin-left: 30px;
+  vertical-align: top;
+  overflow: hidden;
   box-sizing: border-box;
-  line-height: 40px;
-  margin-left: 100px;
   display: inline-block;
+  .notice-icon,
+  .notice-ul {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .notice-icon {
+    width: 10px;
+    vertical-align: top;
+    text-indent: -9999px;
+    background: url(../img/toolbar-voice.png) no-repeat center center;
+  }
+  a {
+    color: #999;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .notice-ul {
+  }
 }
 .toolbar-userInfo {
   margin-right: 20px;
@@ -94,3 +115,53 @@
 .toolbar-r .ul-list li a {
   color: #c7c7c7;
 }
+
+// 区服列表
+.gamezone-list {
+  width: 150px;
+  overflow: hidden;
+  background: #fff;
+  line-height: 1.0;
+  background-color: #25282a;
+  .gamezone-section {
+  }
+  label {
+    color: #868585;
+    display: block;
+    margin: 10px;
+  }
+  li {
+    &.active a {
+      color: #ff7a3f;
+    }
+  }
+  a {
+    display: block;
+    color: #adadad;
+    padding: 6px 10px;
+    &:hover {
+      color: #ff7a3f;
+      background-color: #3c3f3f;
+    }
+  }
+  hr {
+    border: 1px solid #5a5d5f;
+    margin: 5px 10px 10px;
+  }
+  .allzones {
+    margin-top: 5px;
+    text-align: center;
+    background-color: #3c3f3f;
+    a {
+      padding: 10px 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+

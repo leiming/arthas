@@ -24,14 +24,15 @@ export default class Checkbox extends React.Component {
     let divStyle = {
       "width": "300",
       "height": "200",
-      "background": "darkgreen",
+      "background": "blue",
       "color": "red",
-      "position": "absolute"
+      "position": "absolute",
+      "right": 0
     };
 
     return (
       <Dropdown label={"全部游戏"} {...this.props} elementType={'btn'}>
-          <Tab style={divStyle} >
+          <Tab style={divStyle} prefix={prefix}>
             <TabPane tabName="one">One</TabPane>
             <TabPane tabName="two">Two</TabPane>
             <TabPane tabName="three">Three</TabPane>
