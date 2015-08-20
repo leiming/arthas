@@ -23,6 +23,8 @@ import classNames from 'classnames';
 var TabPane = Tab.TabPane;
 
 
+
+
 export default class Toolbar extends React.Component {
 
   static defaultProps = {
@@ -38,8 +40,16 @@ export default class Toolbar extends React.Component {
     this.setState({isOpen: !this.state.isOpen});
   };
 
+
+
   render() {
-    
+    let gamezoneStyle = {
+      "width": "436",
+      "height": "243",
+      "position": "absolute",
+      "right": 0
+    };
+
     return (
       <div className={classNames("toolbar-wrap", {visible: this.state.isOpen})}>
         <div className="toolbar-l">
@@ -64,6 +74,7 @@ export default class Toolbar extends React.Component {
                 </ul>
               </div>
               <div className="gamezone-section allzones">
+
                 <a href="#">全部服务器 ></a>
               </div>
             </div>
@@ -75,14 +86,21 @@ export default class Toolbar extends React.Component {
 
           <a href="#" className="saveid-btn">保存账号</a>
           <a href="#" className="qd-btn">签到</a>
-          
+
           <ul className="ul-list">
             <li><Package/></li>
             <li><a href="#">社区</a></li>
             <li><a href="#">秀场</a></li>
             <li><a href="#">充值</a></li>
             <li><Chat/></li>
-            <li><Gamezone/></li>
+            <li>
+              <Dropdown label="全部游戏" {...this.props} elementType={'btn'} >
+                <div {...this.props} style={gamezoneStyle}>
+                  <Gamezone  />
+                </div>
+
+              </Dropdown>
+             </li>
           </ul>
           <a href="#" className="close-btn" onClick={this.closeHandler}>关闭</a>
         </div>
@@ -90,6 +108,12 @@ export default class Toolbar extends React.Component {
     )
   }
 }
+
+
+
+const className = 'gamezone';
+
+React.render(<Gamezone/>, document.getElementById('test'));
 
 React.render(<Toolbar />, document.getElementById('toolbar'));
 

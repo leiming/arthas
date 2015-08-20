@@ -8,36 +8,33 @@ import TabPane from "../../components/Tab/TabPane";
 let prefix = 'yx-';
 
 export default class Checkbox extends React.Component {
-  
+
   static defaultProps = {
-    prefix: prefix
+    prefix: prefix,
+    className: 'gamezone'
   };
 
   constructor(props) {
     super(props);
   }
-  
+
   state = {isOpen: false};
 
   render() {
 
     let divStyle = {
-      "width": "300",
-      "height": "200",
-      "background": "blue",
-      "color": "red",
+      "width": "436",
+      "height": "243",
       "position": "absolute",
-      "right": 0
+      "left": 0
     };
 
     return (
-      <Dropdown label={"全部游戏"} {...this.props} elementType={'btn'}>
-          <Tab style={divStyle} prefix={prefix}>
-            <TabPane tabName="one">One</TabPane>
-            <TabPane tabName="two">Two</TabPane>
-            <TabPane tabName="three">Three</TabPane>
-          </Tab>
-      </Dropdown>
+      <Tab style={divStyle} {...this.props}>
+        <TabPane tabName="精品游戏"></TabPane>
+        <TabPane tabName="端游">Two</TabPane>
+        <TabPane tabName="小游戏">Three</TabPane>
+      </Tab>
     );
   }
 

@@ -5,6 +5,8 @@
 @import "dropdown";
 @import "tab";
 
+@import "business/business";
+
 .toolbar-wrap {
   min-width: 960px;
   color: #c7c7c7;
@@ -18,6 +20,10 @@
     height: 40px;
     line-height: 40px;
     overflow: visible;
+  }
+  & div {
+    height: inherit;
+    line-height: inherit;
   }
 }
 
@@ -107,12 +113,12 @@
 .toolbar-r .ul-list {
   display: inline-block;
 }
-.toolbar-r .ul-list li {
+.toolbar-r .ul-list > li {
   display: inline-block;
   margin: 0 10px;
-  
+
 }
-.toolbar-r .ul-list li a {
+.toolbar-r .ul-list > li > a {
   color: #c7c7c7;
 }
 

@@ -25,6 +25,7 @@ class Tab extends React.Component {
       if (child.type == TabPane) {
         return React.createElement('li', {
           className: classNames({
+            [`${this.props.className}`]: this.props.className,
             [this.props.prefix+this.props.tabCls+'-link']: true,
             ['active']: (activeIndex === index)
           }),
@@ -52,7 +53,7 @@ class Tab extends React.Component {
 
   render() {
     return <div className={this.props.className} style={this.props.style}>
-      <ul>
+      <ul className={this.props.className + " " + this.props.prefix+this.props.tabCls+"-link-container"}>
         {this.getTabLink(this.props.children)}
       </ul>
       {this.getTabPane(this.props.children)}

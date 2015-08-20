@@ -1,12 +1,13 @@
 @tab: ~"@{prefix}-tab";
 @tabLink: ~"@{tab}-link";
+@tabLinkContainer: ~"@{tab}-link-container";
 @tabPane: ~"@{tab}-pane";
 
 .@{tabLink} {
   color: white;
   display: inline-block;
   padding: 0 5px;
-  border-right: 1px solid white;
+  border-right: 1px solid #6e6e6e;
 
   &:last-child {
     border-right: inherit;
@@ -17,9 +18,14 @@
   }
 }
 
+.@{tabLinkContainer} {
+  padding: 10px 0;
+}
+
 .@{tabPane} {
-  background-color: #2980b9;
   display: none;
+  background: #2a2a2a;
+  height: 100%;
   &.active {
     display: block;
   }
