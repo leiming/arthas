@@ -7,11 +7,11 @@ import TabPane from "../../components/Tab/TabPane";
 
 let prefix = 'yx-';
 
-export default class Checkbox extends React.Component {
+export default class AllGame extends React.Component {
 
   static defaultProps = {
     prefix: prefix,
-    className: 'gamezone'
+    className: 'allgame'
   };
 
   constructor(props) {

@@ -9,7 +9,7 @@ let prefix = 'yx-';
 
 import Logo from "./business/Logo";
 import Chat from "./business/Chat/Chat";
-import Gamezone from "./business/Gamezone/Gamezone";
+import AllGame from "./business/AllGame/AllGame";
 import Package from "./business/Package/Package";
 import UserInfo from "./business/UserInfo/UserInfo";
 
@@ -96,7 +96,7 @@ export default class Toolbar extends React.Component {
             <li>
               <Dropdown label="全部游戏" {...this.props} elementType={'btn'} >
                 <div {...this.props} style={gamezoneStyle}>
-                  <Gamezone  />
+                  <AllGame />
                 </div>
 
               </Dropdown>
@@ -109,11 +109,7 @@ export default class Toolbar extends React.Component {
   }
 }
 
-
-
-const className = 'gamezone';
-
-React.render(<Gamezone/>, document.getElementById('test'));
+React.render(<AllGame/>, document.getElementById('test'));
 
 React.render(<Toolbar />, document.getElementById('toolbar'));
 
