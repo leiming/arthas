@@ -17,10 +17,11 @@ export default class JingpinGame extends React.Component {
 
     var eles = data.map((value, index) => {
       return <li className={"jpgame-item"} key={index}>
-        <i className={value.ishot ? "ico-hot" : ""}></i>
-        <img className="logo" src={value.logo} alt={value.name}/>{value.name}
-
-
+        <a href="#">
+          <i className={value.ishot ? "ico-hot" : ""}></i>
+          <img className="logo" src={value.logo} alt={value.name}/>
+          {value.name}
+          </a>
       </li>
     });
 
