@@ -7,162 +7,202 @@
 
 @import "business/business";
 
+@toolbar-height: 40px;
+@toolbar-lineheight: 40px;
+
+// 外层包裹器
 .toolbar-wrap {
-  min-width: 960px;
-  color: #c7c7c7;
-  .gradient(top, #666666, #1c1c1c);
-  height: 0;
-  overflow: hidden;
+  height: @toolbar-height;
   padding: 0 0 0 20px;
   vertical-align: middle;
-  transition: all .5s ease-in;
-  &.visible {
-    height: 40px;
-    line-height: 40px;
-    overflow: visible;
-  }
-  & div {
-    height: inherit;
-    line-height: inherit;
-  }
+  color: #c7c7c7;
+  .gradient(top, #666666, #1c1c1c);
 }
 
+// 左浮
 .toolbar-l {
   float: left;
-}
-.toolbar-r {
-  float: right;
-}
-
-#toolbar .yx-dropdown{
-  display: inline-block;
-  height: 40px;
-}
-
-.toolbar-logo {
-  display: inline-block;
-  vertical-align: top;
-  width: 121px;
-  height: 40px;
-  margin-right: 25px;
-  text-indent: -9999px;
-  background: url(../img/toolbar-logo.png) no-repeat center center;
-}
-
-//公告列表
-.toolbar-notice {
-  height: 40px;
-  margin-left: 30px;
-  vertical-align: top;
-  overflow: hidden;
-  box-sizing: border-box;
-  display: inline-block;
-  .notice-icon,
-  .notice-ul {
+  // logo
+  .toolbar-logo {
     display: inline-block;
     vertical-align: top;
-  }
-  .notice-icon {
-    width: 10px;
-    vertical-align: top;
+    width: 121px;
+    height: @toolbar-height;
+    margin-right: 25px;
     text-indent: -9999px;
-    background: url(../img/toolbar-voice.png) no-repeat center center;
+    background: url(../img/toolbar-logo.png) no-repeat center center;
   }
-  a {
-    color: #999;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  .notice-ul {
-  }
-}
-.toolbar-userInfo {
-  margin-right: 20px;
-}
-.toolbar-r .saveid-btn,
-.toolbar-r .qd-btn {
-  display: inline-block;
-  width: 58px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  background-color: #383c40;
-  color: #c7c7c7;
-  font-size: 12px;
-  border-radius: 5px;
-  margin-right: 10px;
-  &:hover {
-    background-color: #53565b;
-  }
-}
 
-.toolbar-r .close-btn {
-  display: inline-block;
-  vertical-align: top;
-  text-indent: -999px;
-  overflow: hidden;
-  width: 40px;
-  height: 40px;
-  border-left: 1px solid #6c6c6c;
-  background: url(../img/toolbar-closeBtn.png) no-repeat center center;
-  &:hover {
-    background-color: #3b3e41;
-  }
-}
-.toolbar-r .ul-list {
-  display: inline-block;
-}
-.toolbar-r .ul-list > li {
-  display: inline-block;
-  margin: 0 10px;
-
-}
-.toolbar-r .ul-list > li > a {
-  color: #c7c7c7;
-}
-
-// 区服列表
-.gamezone-list {
-  width: 150px;
-  overflow: hidden;
-  background: #fff;
-  line-height: 1.0;
-  background-color: #25282a;
-  .gamezone-section {
-  }
-  label {
-    color: #868585;
-    display: block;
-    margin: 10px;
-  }
-  li {
-    &.active a {
-      color: #ff7a3f;
+  // 下拉内容框的样式
+  .yx-dropdown {
+    display: inline-block;
+    & > .yx-dropdown-btn {
+      display: block;
+      margin: 9px 0;
+      height: 20px;
+      line-height: 20px;
+      padding: 0 15px 0 10px;
+      border-radius: 3px;
+      border: 1px solid #6c6c6c;
+      background: #212328 url(../img/toolbar-flip.png) no-repeat right center;
     }
   }
-  a {
-    display: block;
-    color: #adadad;
-    padding: 6px 10px;
-    &:hover {
-      color: #ff7a3f;
+
+  // 区服列表
+  .gamezone-list {
+
+    width: 150px;
+    overflow: hidden;
+    background: #fff;
+    background-color: #25282a;
+    .title {
+      color: #868585;
+      display: block;
+      margin: 10px;
+    }
+    .list-item {
+      a {
+        display: block;
+        color: #adadad;
+        padding: 6px 10px;
+        &:hover {
+          color: #ff7a3f;
+          background-color: #3c3f3f;
+        }
+      }
+
+      &.active a {
+        color: #ff7a3f;
+      }
+    }
+    .divide {
+      border: 1px solid #5a5d5f;
+      margin: 5px 10px 10px;
+    }
+    .allzones {
+      margin-top: 5px;
+      text-align: center;
       background-color: #3c3f3f;
+      a {
+        display: block;
+        color: #adadad;
+        padding: 10px 0;
+        &:hover {
+          color: #ff7a3f;
+          background-color: #3c3f3f;
+        }
+      }
     }
   }
-  hr {
-    border: 1px solid #5a5d5f;
-    margin: 5px 10px 10px;
-  }
-  .allzones {
-    margin-top: 5px;
-    text-align: center;
-    background-color: #3c3f3f;
+
+  //公告列表
+  .toolbar-notice {
+    height: @toolbar-height;
+    line-height: @toolbar-lineheight;
+    margin-left: 30px;
+    vertical-align: top;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-block;
+    .notice-icon,
+    .notice-ul {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .notice-icon {
+      width: 10px;
+      vertical-align: top;
+      text-indent: -9999px;
+      background: url(../img/toolbar-voice.png) no-repeat center center;
+    }
     a {
-      padding: 10px 0;
+      color: #999;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .notice-ul {
     }
   }
 }
+
+// 右浮
+.toolbar-r {
+  float: right;
+  // 用户信息
+  .toolbar-userInfo,.user-opt,.ul-list,.actions {
+    vertical-align: top;
+    display: inline-block;
+  }
+  .toolbar-userInfo {
+    margin-right: 20px;
+    height: @toolbar-height;
+    line-height: @toolbar-lineheight;
+  }
+  .user-opt {
+    height: @toolbar-height;
+    line-height: @toolbar-lineheight;
+    .saveid-btn,
+    .qd-btn {
+      display: inline-block;
+      width: 58px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      background-color: #383c40;
+      color: #c7c7c7;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-right: 10px;
+      &:hover {
+        background-color: #53565b;
+      }
+    }
+  }
+  .ul-list {
+    & > li {
+      display: inline-block;
+      margin-left: 15px;
+    }
+    & > li > a {
+      display: block;
+      color: #c7c7c7;
+      height: @toolbar-height;
+      line-height: @toolbar-lineheight;
+    }
+    & > li .yx-dropdown .yx-dropdown-label {
+      display: block;
+      height: @toolbar-height;
+      line-height: @toolbar-lineheight;
+    }
+    & > li .yx-dropdown-btn {
+      display: block;
+      height: @toolbar-height;
+      line-height: @toolbar-lineheight;
+      border-left: #6c6c6c 1px solid;
+      border-right: #6c6c6c 1px solid;
+      padding: 0 20px 0 10px;
+      cursor: pointer;
+      background: url(../img/toolbar-flip.png) no-repeat 60px center;
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+  .actions > .close-btn {
+    display: inline-block;
+    vertical-align: top;
+    text-indent: -999px;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    background: url(../img/toolbar-closeBtn.png) no-repeat center center;
+    &:hover {
+      background-color: #3b3e41;
+    }
+  }
+}
+
 
 
 

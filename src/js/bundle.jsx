@@ -57,24 +57,23 @@ export default class Toolbar extends React.Component {
           <Dropdown label={"花千骨——不删档15服"} isOpen={false} {...this.props} elementType={'btn'}>
             <div className="gamezone-list">
               <div className="gamezone-section">
-                <label>最近登录</label>
+                <label className="title">最近登录</label>
                 <ul>
-                  <li className="active"><a href="#">双线977服-福寿齐天</a></li>
-                  <li><a href="#">双线931服-一劳永逸</a></li>
+                  <li className="list-item active"><a href="#">双线977服-福寿齐天</a></li>
+                  <li className="list-item"><a href="#">双线931服-一劳永逸</a></li>
                 </ul>
               </div>
-              <hr/>
+              <hr className="divide"/>
               <div className="gamezone-section">
-                <label>最新开服</label>
+                <label className="title">最新开服</label>
                 <ul>
-                <li><a href="#">双线977服-如雷灌耳</a></li>
-                <li><a href="#">双线931服-生龙活虎</a></li>
-                <li><a href="#">双线931服-生龙活虎</a></li>
-                <li><a href="#">双线931服-生龙活虎</a></li>
+                  <li className="list-item"><a href="#">双线977服-如雷灌耳</a></li>
+                  <li className="list-item"><a href="#">双线931服-生龙活虎</a></li>
+                  <li className="list-item"><a href="#">双线931服-生龙活虎</a></li>
+                  <li className="list-item"><a href="#">双线931服-生龙活虎</a></li>
                 </ul>
               </div>
               <div className="gamezone-section allzones">
-
                 <a href="#">全部服务器 ></a>
               </div>
             </div>
@@ -83,10 +82,10 @@ export default class Toolbar extends React.Component {
         </div>
         <div className="toolbar-r">
           <UserInfo/>
-
-          <a href="#" className="saveid-btn">保存账号</a>
-          <a href="#" className="qd-btn">签到</a>
-
+          <div className="user-opt">
+            <a href="#" className="saveid-btn">保存账号</a>
+            <a href="#" className="qd-btn">签到</a>
+          </div>
           <ul className="ul-list">
             <li><Package/></li>
             <li><a href="#">社区</a></li>
@@ -102,14 +101,16 @@ export default class Toolbar extends React.Component {
               </Dropdown>
              </li>
           </ul>
-          <a href="#" className="close-btn" onClick={this.closeHandler}>关闭</a>
+          <div className="actions">
+            <a href="#" className="close-btn" onClick={this.closeHandler}>关闭</a>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-React.render(<AllGame/>, document.getElementById('test'));
+// React.render(<AllGame/>, document.getElementById('test'));
 
 React.render(<Toolbar />, document.getElementById('toolbar'));
 

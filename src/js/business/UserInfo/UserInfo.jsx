@@ -21,10 +21,10 @@ export default class UserInfo extends React.Component {
 
   render() {
     return (
-      <span className="toolbar-userInfo">
+      <div className="toolbar-userInfo">
         <img src={this.state.avatar} width="20" alt={this.state.uid}/>
         <i>{this.state.uid}</i>
-      </span>
+      </div>
     );
   }
 }
