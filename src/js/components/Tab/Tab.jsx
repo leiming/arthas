@@ -26,7 +26,7 @@ class Tab extends React.Component {
         return React.createElement('li', {
           className: classNames({
             [`${this.props.className}`]: this.props.className,
-            [this.props.prefix+this.props.tabCls+'-link']: true,
+            [this.props.prefix + this.props.tabCls + '-link']: true,
             ['active']: (activeIndex === index)
           }),
           'data-index': index,
@@ -40,16 +40,17 @@ class Tab extends React.Component {
     this.setState({'activeIndex': index});
   };
 
-  getTabPane(children) {
+  getTabPane = (children) => {
     let paneProp = Object.assign({}, this.state, this.props);
-
     return React.Children.map(children, function (child, index) {
       if (child.type == TabPane) {
-        return React.cloneElement(child, Object.assign({index: index}, paneProp, child.props));
+        if (child.props.children) {
+          return React.cloneElement(child, Object.assign({index: index}, paneProp, child.props));
+        }
+        return React.createElement(TabPane, Object.assign({index: index}, paneProp, child.props), child);
       }
-      return <span>null</span>
     })
-  }
+  };
 
   render() {
     return <div className={this.props.className} style={this.props.style}>
