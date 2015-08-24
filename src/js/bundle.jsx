@@ -45,7 +45,7 @@ export default class Toolbar extends React.Component {
   render() {
     let gamezoneStyle = {
       "width": "436",
-      "height": "243",
+      "height": "200",
       "position": "absolute",
       "right": 0
     };
