@@ -92,13 +92,8 @@ export default class Toolbar extends React.Component {
             <li><a href="#">秀场</a></li>
             <li><a href="#">充值</a></li>
             <li><Chat/></li>
-            <li>
-              <Dropdown label="全部游戏" {...this.props} elementType={'btn'} >
-                <div {...this.props} style={gamezoneStyle}>
-                  <AllGame />
-                </div>
-
-              </Dropdown>
+            <li className="allgame">
+              <AllGame />
              </li>
           </ul>
           <div className="actions">

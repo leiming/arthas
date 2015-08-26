@@ -56,11 +56,11 @@ export default class Dropdown extends React.Component {
      * @BUG 连续点击（如三击）导致多触发
      */
     const openState = !this.state.isOpen;
-      if (openState) {
-        this.bindOuter()
-      } else {
-        this.unbindOuter()
-      }
+    if (openState) {
+      this.bindOuter()
+    } else {
+      this.unbindOuter()
+    }
     this.setVisible(openState);
     e.preventDefault();
     e.stopPropagation();
@@ -76,7 +76,6 @@ export default class Dropdown extends React.Component {
 
 
   render() {
-
     let labelProp = {
       className: `${this.props.prefix}${this.props.className}-${this.props.elementType}`
     };
@@ -94,7 +93,8 @@ export default class Dropdown extends React.Component {
 
     const label = React.createElement('a', labelProp, this.props.label);
     return <div
-      className={classNames(`${this.props.prefix}${this.props.className}`,{
+      className={classNames(
+      `${this.props.prefix}${this.props.className}`,{
       visible: this.state.isOpen})} {...containerProps} >
       {label}
       {this.getDropdownContent(this.props.children)}
