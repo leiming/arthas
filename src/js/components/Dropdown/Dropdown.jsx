@@ -20,11 +20,15 @@ export default class Dropdown extends React.Component {
   getDropdownContent = (children) => {
 
     let child = React.Children.only(children);
+    const props = this.props;
+    const prefix = props.prefix || '';
 
     const childProps = {
-      className: classNames(`${this.props.prefix}${this.props.className}-content`, {
-        hidden: !this.state.isOpen
-      }, [child.props.className]),
+      className: classNames(
+        `${prefix}${props.className}-content`,
+        {hidden: !this.state.isOpen},
+        [child.props.className]
+      ),
       style: child.props.style
     };
 
@@ -56,11 +60,13 @@ export default class Dropdown extends React.Component {
      * @BUG 连续点击（如三击）导致多触发
      */
     const openState = !this.state.isOpen;
+
     if (openState) {
       this.bindOuter()
     } else {
       this.unbindOuter()
     }
+
     this.setVisible(openState);
     e.preventDefault();
     e.stopPropagation();
@@ -74,12 +80,16 @@ export default class Dropdown extends React.Component {
     this.setVisible(false);
   };
 
-
   render() {
+
+    const props = this.props;
+    const prefix = props.prefix || '';
+
     let labelProp = {
-      className: `${this.props.prefix}${this.props.className}-${this.props.elementType}`
+      className: `${prefix}${props.className}-${props.elementType}`
     };
-    const activeMethod = this.props.activeMethod;
+
+    const activeMethod = props.activeMethod;
     const containerProps = {};
 
     if (activeMethod.indexOf('click') !== -1) {
@@ -91,10 +101,10 @@ export default class Dropdown extends React.Component {
       containerProps.onMouseLeave = this.onMouseLeave;
     }
 
-    const label = React.createElement('a', labelProp, this.props.label);
+    const label = React.createElement('a', labelProp, props.label);
     return <div
       className={classNames(
-      `${this.props.prefix}${this.props.className}`,{
+      `${prefix}${props.className}`,{
       visible: this.state.isOpen})} {...containerProps} >
       {label}
       {this.getDropdownContent(this.props.children)}

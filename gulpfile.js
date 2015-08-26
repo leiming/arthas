@@ -55,7 +55,7 @@ var bundler = watchify(browserify({
 }))
 
 
-bundler.transform(babelify, {optional: ["es7.asyncFunctions", "es7.classProperties"]})
+bundler.transform(babelify.configure({stage: 0}))
 
 // On update recompile
 bundler.on('update', devBundle)

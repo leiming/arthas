@@ -25,7 +25,7 @@ export default class Checkbox extends React.Component {
         checked: event.target.checked
       });
     }
-    this.props.onChange(event);
+    this.props.onChange && this.props.onChange(event);
   };
 
   render() {
