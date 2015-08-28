@@ -207,8 +207,6 @@ gulp.task('build', function (done) {
 });
 
 gulp.task('default', ['build'], function () {
-
-
   browserSync.init({
     // proxy: {
     //   target: "http://localhost:3000"

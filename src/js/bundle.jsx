@@ -23,6 +23,12 @@ export default class Sample extends React.Component {
 
   state = {isOpen: true};
 
+  onClick = () => {
+    this.setState({isOpen: !this.state.isOpen})
+  };
+
+
+
   render() {
     return (
       <div>
@@ -37,9 +43,9 @@ export default class Sample extends React.Component {
           </li>
           <li>
             <div>
-              <div className="hd">Dropdown</div>
+              <div className="hd">Dropdown          <button onClick={this.onClick}>setDropdown</button></div>
               <div className="bd">
-                <Dropdown label="Dropdown">
+                <Dropdown label="Dropdown" setSwitch={this.state.isOpen}>
                   <div>
                     <ul>
                       <li>aaa</li>
@@ -48,10 +54,10 @@ export default class Sample extends React.Component {
                     </ul>
                   </div>
                 </Dropdown>
+              <li></li>
               </div>
             </div>
           </li>
-          <li></li>
           <li></li>
           <li></li>
           <li></li>
