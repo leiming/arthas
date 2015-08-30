@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "arthas",
   "main": "index.js",
-  "scripts": {
-    "serve": "nodemon server.js localhost 3000"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leiming/arthas.git"
@@ -39,12 +36,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-utf8ize-sourcemaps": "^0.1.0",
     "gulp-util": "^3.0.6",
-    "handlebars": "^3.0.3",
-    "koa": "^0.21.0",
-    "koa-router": "^5.1.2",
-    "koa-static": "^1.4.9",
     "less-plugin-autoprefix": "^1.4.2",
-    "nodemon": "^1.4.1",
     "react": "^0.13.3",
     "run-sequence": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
