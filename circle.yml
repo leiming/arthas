@@ -1,0 +1,16 @@
+general:
+  branches:
+    ignore:
+    - koa
+
+machine:
+
+  timezone:
+    Asia/Shanghai
+
+  node:
+    version: 0.12
+
+dependencies:
+  override:
+    - npm install --save-dev
