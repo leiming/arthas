@@ -1,6 +1,6 @@
 {
   "name": "arthas",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "arthas",
   "scripts": {
     "compile": "babel -d lib/ src/ --stage 0",
