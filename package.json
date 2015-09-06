@@ -1,14 +1,16 @@
 {
   "name": "arthas",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "arthas",
-  "main": "index.js",
+  "scripts": {
+    "compile": "babel -d lib/ src/ --stage 0",
+    "prepublish": "npm run compile",
+    "test": "jest"
+  },
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leiming/arthas.git"
-  },
-  "scripts": {
-    "test": "jest"
   },
   "keywords": [
     "arthas.git"
