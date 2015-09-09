@@ -1,7 +1,7 @@
 "use strict";
 
-require("babel/polyfill");
-//require('./components/utils/addEventListener-polyfill');
+// require("babel/polyfill");
+// require('./components/utils/addEventListener-polyfill');
 
 import React from "react";
 
@@ -27,8 +27,6 @@ export default class Sample extends React.Component {
     this.setState({isOpen: !this.state.isOpen})
   };
 
-
-
   render() {
     return (
       <div>
@@ -43,9 +41,12 @@ export default class Sample extends React.Component {
           </li>
           <li>
             <div>
-              <div className="hd">Dropdown          <button onClick={this.onClick}>setDropdown</button></div>
+              <div className="hd">Dropdown
+                <button onClick={this.onClick}>setDropdown</button>
+              </div>
               <div className="bd">
-                <Dropdown label="Dropdown" setSwitch={this.state.isOpen}>
+                <Dropdown label="Dropdown" setSwitch={this.state.isOpen}
+                          onVisibleChange={(visable)=>{console.log(visable)}}>
                   <div>
                     <ul>
                       <li>aaa</li>
@@ -54,7 +55,7 @@ export default class Sample extends React.Component {
                     </ul>
                   </div>
                 </Dropdown>
-              <li></li>
+                <li></li>
               </div>
             </div>
           </li>

@@ -48,7 +48,7 @@ export default class Dropdown extends React.Component {
   };
 
   onDocumentClick = (e) => {
-    const componentNode = React.findDOMNode(this);
+    const componentNode = React.findnDOMNode(this);
     const isContain = componentNode.contains(e.target);
     if (!isContain) {
       this.setVisible(false);
@@ -56,13 +56,15 @@ export default class Dropdown extends React.Component {
   };
 
   setVisible = (visible) => {
+    if (typeof this.props.onVisibleChange === 'function') {
+      if (this.state.isOpen !== !!visible) {
+        this.props.onVisibleChange({visible: !!visible});
+      }
+    }
     this.setState({isOpen: !!visible});
   };
 
   onClick = (e) => {
-    /***
-     * @BUG 连续点击（如三击）导致多触发
-     */
     const openState = !this.state.isOpen;
 
     if (openState) {
