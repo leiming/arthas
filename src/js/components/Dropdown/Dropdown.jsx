@@ -25,10 +25,6 @@ export default class Dropdown extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps = () => {
-    this.setVisible(this.props.isOpen);
-  };
-
   state = {isOpen: this.props.isOpen};
 
   getDropdownContent = (children) => {
