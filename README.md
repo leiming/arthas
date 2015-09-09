@@ -1,6 +1,6 @@
 # Arthas
 
-[![Circle CI](https://circleci.com/gh/leiming/arthas/tree/master.svg?style=svg)](https://circleci.com/gh/leiming/arthas/tree/master)
+[![Build Status](https://img.shields.io/circleci/project/leiming/arthas/master.svg)](https://circleci.com/gh/leiming/arthas/tree/master)
 [![npm version](https://badge.fury.io/js/arthas.svg)](http://badge.fury.io/js/arthas)
 
 
