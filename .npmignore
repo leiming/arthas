@@ -1,1 +1,6 @@
 src/
+server/
+dist/
+gulpfile.js
+server.js
+*.iml

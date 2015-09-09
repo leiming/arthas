@@ -29,5 +29,8 @@ node_modules
 # Dist Directory
 dist
 
+# BaBel Directory
+lib
+
 # IntelliJ Module Library
 *.iml

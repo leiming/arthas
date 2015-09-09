@@ -8,7 +8,17 @@ export default class Dropdown extends React.Component {
   static defaultProps = {
     className: 'dropdown',
     activeMethod: 'click',
-    elementType: 'label'
+    elementType: 'label',
+    isOpen: false,
+    setSwitch: false
+  };
+
+  propTypes = {
+    className: React.PropTypes.string,
+    activeMethod: React.PropTypes.oneOf(['click', 'hover']),
+    elementType: React.PropTypes.oneOf(['label', 'btn']),
+    isOpen: React.PropTypes.bool,
+    setSwitch: React.PropTypes.bool
   };
 
   constructor(props) {
@@ -16,7 +26,7 @@ export default class Dropdown extends React.Component {
   }
 
   componentWillReceiveProps = () => {
-    this.setVisible(!!this.props.setSwitch);
+    this.setVisible(this.props.isOpen);
   };
 
   state = {isOpen: this.props.isOpen};
@@ -48,7 +58,7 @@ export default class Dropdown extends React.Component {
   };
 
   onDocumentClick = (e) => {
-    const componentNode = React.findnDOMNode(this);
+    const componentNode = React.findDOMNode(this);
     const isContain = componentNode.contains(e.target);
     if (!isContain) {
       this.setVisible(false);
@@ -87,7 +97,6 @@ export default class Dropdown extends React.Component {
   };
 
   render() {
-
     const props = this.props;
     const prefix = props.prefix || '';
 

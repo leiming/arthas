@@ -3,6 +3,8 @@
 // require("babel/polyfill");
 // require('./components/utils/addEventListener-polyfill');
 
+console.log("ssssssssss");
+
 import React from "react";
 
 let prefix = 'yx-';
