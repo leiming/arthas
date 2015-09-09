@@ -1,6 +1,6 @@
 {
   "name": "arthas",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "arthas",
   "scripts": {
     "compile": "babel -d lib/ src/ --stage 0 --ignore='test.js'",
