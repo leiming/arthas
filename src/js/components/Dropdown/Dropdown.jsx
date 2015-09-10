@@ -13,7 +13,7 @@ export default class Dropdown extends React.Component {
     setSwitch: false
   };
 
-  propTypes = {
+  static propTypes = {
     className: React.PropTypes.string,
     activeMethod: React.PropTypes.oneOf(['click', 'hover']),
     elementType: React.PropTypes.oneOf(['label', 'btn']),
@@ -112,7 +112,9 @@ export default class Dropdown extends React.Component {
       containerProps.onMouseLeave = this.onMouseLeave;
     }
 
-    const label = React.createElement('a', labelProp, props.label);
+    const label = <a {...labelProp}>{props.label}
+      <i className={`${prefix}${props.className}-ico`}></i></a>;
+
     return <div
       className={classNames(
       `${prefix}${props.className}`,{
