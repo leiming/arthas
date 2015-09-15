@@ -112,7 +112,7 @@ export default class Dropdown extends React.Component {
       containerProps.onMouseLeave = this.onMouseLeave;
     }
 
-    const label = <a {...labelProp}>{props.label}
+    const label = <a {...labelProp} data-bk={this.props.bk ? this.props.bk : ''}>{props.label}
       <i className={`${prefix}${props.className}-ico`}></i></a>;
 
     return <div
