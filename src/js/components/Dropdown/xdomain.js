@@ -77,7 +77,6 @@ U8.xdomain = function($) {
 
     return {
         addIframe : function(name, windowObject){
-            alert('haha');
             if(parseInt(Sys.chrome) < 40) {
                 if(!windowObject) {
                     var ifr = $('#gameinfo')[0];
@@ -105,7 +104,6 @@ U8.xdomain = function($) {
             }
         },
         removeIframe : function(name, windowObject){
-            alert('hehe');
             if(parseInt(Sys.chrome) < 40) {
                 if(!windowObject) {
                     var ifr = $('#gameinfo')[0];
