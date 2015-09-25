@@ -57,7 +57,7 @@ U8.xdomain = function($) {
                     var offset = $(this).offset();
                     var iframeId = $(this).attr('id');
                     var message = '{ "op": "change", "id": "'+ iframeId + '", "offset": {"left":'+(offset.left-ifr_offset.left)+',"top":'+(offset.top-ifr_offset.top)+'} }';
-                    qtool.xdomain.sendMessage(windowObject,message,'toolbar');
+                    sendMessage(windowObject,message,'toolbar');
                 });
             });
             $(window).scroll(function(){
@@ -67,7 +67,7 @@ U8.xdomain = function($) {
                     var offset = $(this).offset();
                     var iframeId = $(this).attr('id');
                     var message = '{ "op": "change", "id": "'+ iframeId + '", "offset": {"left":'+(offset.left-ifr_offset.left)+',"top":'+(offset.top-ifr_offset.top)+'} }';
-                    qtool.xdomain.sendMessage(windowObject,message,'toolbar');
+                    sendMessage(windowObject,message,'toolbar');
                 });
             });
         }
