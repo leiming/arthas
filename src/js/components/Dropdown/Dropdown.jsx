@@ -1,5 +1,6 @@
 "use strict";
 
+var U8 = require('./xdomain');
 import React from 'react';
 import classNames from 'classnames';
 
@@ -57,6 +58,7 @@ export default class Dropdown extends React.Component {
     const componentNode = React.findDOMNode(this);
     const isContain = componentNode.contains(e.target);
     if (!isContain) {
+      U8.xdomain.removeIframe();
       this.setVisible(false);
     }
   };
@@ -74,8 +76,10 @@ export default class Dropdown extends React.Component {
     const openState = !this.state.isOpen;
 
     if (openState) {
+      U8.xdomain.addIframe();
       this.bindOuter()
     } else {
+      U8.xdomain.removeIframe();
       this.unbindOuter()
     }
 
