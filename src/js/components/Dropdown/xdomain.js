@@ -112,7 +112,7 @@ U8.xdomain = function($) {
                     }
                     windowObject = ifr.contentWindow;
                 }
-                var appObj = $('.yx-dropdown.visible');
+                var appObj = $('.yx-dropdown');
                 var dropdownObj = appObj.find('.yx-dropdown-content');
                 $.each(dropdownObj,function(i,n){
                     var iframeId = $(this).attr('id');
