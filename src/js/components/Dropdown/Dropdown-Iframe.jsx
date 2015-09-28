@@ -1,5 +1,6 @@
 "use strict";
 
+var U8 = require('./xdomain');
 import React from 'react';
 import classNames from 'classnames';
 
@@ -23,6 +24,14 @@ export default class Dropdown extends React.Component {
 
   constructor(props) {
     super(props);
+  }
+
+  componentDidUpdate = () => {
+    if(this.state.isOpen) {
+      U8.xdomain.addIframe('.yx-dropdown.visible .yx-dropdown-content');
+    }else {
+      U8.xdomain.removeIframe('.yx-dropdown .yx-dropdown-content');
+    }
   }
 
   state = {isOpen: this.props.isOpen};
@@ -112,7 +121,7 @@ export default class Dropdown extends React.Component {
       containerProps.onMouseLeave = this.onMouseLeave;
     }
 
-    const label = <a {...labelProp}>{props.label}
+    const label = <a {...labelProp} data-bk={this.props.bk ? this.props.bk : ''}>{props.label}
       <i className={`${prefix}${props.className}-ico`}></i></a>;
 
     return <div
