@@ -1,7 +1,7 @@
 /**
  * @fileOverview xdomain.js addFrame, removeIframe
  * @description 用于和游戏内iframe通信，游戏内iframe去遮罩flash，app的弹出框才能遮罩住内部flash。(仅在chrome2x~3x之间有这个
- * 无法覆盖iframe内flash的情况)
+ * 无法覆盖iframe内flash的情况，经发现，360极速浏览器chrome42也有此问题)
  * global U8.xdomain
  *
  * usage:
@@ -45,7 +45,7 @@ var U8 = U8 || {};
 
 
 U8.xdomain = function($) {
-  if(parseInt(Sys.chrome) < 40) {
+  if(parseInt(Sys.chrome) < 45) {
     var ifr = $('#gameinfo')[0];
     if (ifr) {
       var windowObject = ifr.contentWindow;
@@ -76,7 +76,7 @@ U8.xdomain = function($) {
 
   return {
     addIframe : function(selector, name, windowObject){
-      if(parseInt(Sys.chrome) < 40) {
+      if(parseInt(Sys.chrome) < 45) {
         if(!windowObject) {
           var ifr = $('#gameinfo')[0];
           if(!ifr) {
@@ -103,7 +103,7 @@ U8.xdomain = function($) {
       }
     },
     removeIframe : function(selector, name, windowObject){
-      if(parseInt(Sys.chrome) < 40) {
+      if(parseInt(Sys.chrome) < 45) {
         if(!windowObject) {
           var ifr = $('#gameinfo')[0];
           if(!ifr) {
