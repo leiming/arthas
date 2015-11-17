@@ -1,11 +1,7 @@
 "use strict";
 
-// require("babel/polyfill");
-// require('./components/utils/addEventListener-polyfill');
-
-console.log("ssssssssss");
-
 import React from "react";
+import ReactDOM from 'react-dom';
 
 let prefix = 'yx-';
 
@@ -31,46 +27,37 @@ export default class Sample extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          <li>
-            <div>
-              <div className="hd">Checkbox</div>
-              <div className="bd">
-                <Checkbox/>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <div className="hd">Dropdown
-                <button onClick={this.onClick}>setDropdown</button>
-              </div>
-              <div className="bd">
-                <Dropdown label="Dropdown" setSwitch={this.state.isOpen}
-                          onVisibleChange={(visable)=>{console.log(visable)}}>
-                  <div>
-                    <ul>
-                      <li>aaa</li>
-                      <li>bbb</li>
-                      <li>ccc</li>
-                    </ul>
-                  </div>
-                </Dropdown>
-                <li></li>
-              </div>
-            </div>
-          </li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
+      <Dropdown activeMethod='click'>
+        <a className={'customToggle'}>aaaa
+          <i>11</i>
+        </a>
+        <div className={'customContent'}>
+          <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+          </ul>
+        </div>
+      </Dropdown>
     )
   }
 }
 
 
-React.render(<Sample />, document.getElementById('sample'));
+class SampleEvent extends React.Component {
 
+  myClick = e => {
+    console.log('myClick');
+    console.log(this);
+    console.log(this.props);
+  };
 
+  render() {
+    return <div>
+      <button onClick={this.myClick}>myClick</button>
+    </div>
+  }
+}
+
+ReactDOM.render(<Sample />, document.getElementById('sample'));
+//ReactDOM.render(<SampleEvent />, document.getElementById('sample2'));

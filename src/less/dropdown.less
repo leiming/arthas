@@ -10,24 +10,21 @@
   vertical-align: top;
   position: relative;
 
-  &-btn {
-
-  }
-
-  &-label {
+  &-toggle {
     text-align: center;
-    color: #c7c7c7;
+    .user-select();
   }
 
   &-content {
     position: absolute;
     display: block;
-    &.hidden{
-      display: none!important;
+  }
+
+  &&-hidden {
+    .@{dropdown}-content {
+      display: none !important;
     }
   }
 }
-
-
 
 
