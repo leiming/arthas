@@ -8,7 +8,7 @@
     "preversion": "npm test",
     "test": "BABEL_JEST_STAGE=0 jest"
   },
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leiming/arthas.git"
