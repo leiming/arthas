@@ -1,5 +1,3 @@
-"use strict";
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
@@ -12,13 +10,18 @@ export default class Dropdown extends React.Component {
     className: 'dropdown',
     activeMethod: 'click',
     defaultVisible: false,
-    onVisibleChange: () => {}
+    contentStyle: {},
+    toggleStyle: {},
+    onVisibleChange: () => {
+    }
   }
 
   static propTypes = {
     className: React.PropTypes.string,
     activeMethod: React.PropTypes.oneOf(['click', 'hover']),
     defaultVisible: React.PropTypes.bool,
+    contentStyle: React.PropTypes.object,
+    toggleStyle: React.PropTypes.object,
     onVisibleChange: React.PropTypes.func
   }
 
@@ -28,7 +31,7 @@ export default class Dropdown extends React.Component {
     // defaultVisible = true 当初次加载时，触发 change 及事件绑定
     if (this.state.isOpen === true) {
       this.props.onVisibleChange({visible: true});
-      this.bindOuter()
+      this.bindOuter();
     }
   }
 
@@ -40,26 +43,38 @@ export default class Dropdown extends React.Component {
   }
 
   getDropdownToggle = (child) => {
-
     const props = this.props;
     const prefix = props.prefix || '';
+
     const toggleProp = {
-      'className': classNames([`${prefix}${props.className}-toggle`, child.props.className])
-    }
+      'className': classNames(`${props.className}-toggle`,
+        {[`${prefix}${props.className}-toggle`]: prefix})
+    };
 
     if (props.activeMethod.indexOf('click') !== -1) {
       toggleProp.onClick = this.onClick;
     }
 
-    return (<span {...toggleProp} >{child}</span>)
+    return (<span {...toggleProp} style={props.toggleStyle}>{child}</span>);
   }
 
   getDropdownContent = (child) => {
-    const props = this.props
-    const prefix = props.prefix || ''
-    const contentProps = {className: classNames([`${prefix}${props.className}-content`, child.props.className])}
+    const props = this.props;
+    const prefix = props.prefix || '';
 
-    return (<div {...contentProps}>{child}</div>)
+    const contentProps = {
+      className: classNames(
+        `${props.className}-content`,
+        {[`${prefix}${props.className}-content`]: prefix}
+      )
+    };
+
+    return (<div {...contentProps} style={props.contentStyle}>{child}</div>);
+  }
+
+  setVisible = (visibleState) => {
+    const visible = !!visibleState;
+    this.setState({isOpen: visible});
   }
 
   bindOuter = () => {
@@ -78,19 +93,13 @@ export default class Dropdown extends React.Component {
     }
   }
 
-  setVisible = (visibleState) => {
-    const visible = !!visibleState;
-
-    this.setState({isOpen: visible});
-  }
-
   onClick = (e) => {
     const openState = !this.state.isOpen;
 
     if (openState) {
-      this.bindOuter()
+      this.bindOuter();
     } else {
-      this.unbindOuter()
+      this.unbindOuter();
     }
 
     this.setVisible(openState);
@@ -99,7 +108,6 @@ export default class Dropdown extends React.Component {
   }
 
   onMouseEnter = (e) => {
-    console.log("onMouseEnter");
     this.setVisible(true);
   }
 
@@ -113,24 +121,26 @@ export default class Dropdown extends React.Component {
     const children = props.children;
 
     invariant(children.length === 2,
-      'Dropdown is Children\'s length should be equal to 2');
+      'The length of children should be equal to 2');
 
     const activeMethod = props.activeMethod;
 
-    const toggleProp = {}
+    const containerProp = {}
 
     if (activeMethod.indexOf('hover') !== -1) {
-      toggleProp.onMouseEnter = this.onMouseEnter;
-      toggleProp.onMouseLeave = this.onMouseLeave;
+      containerProp.onMouseEnter = this.onMouseEnter;
+      containerProp.onMouseLeave = this.onMouseLeave;
     }
 
-    return <span
-      {...toggleProp}
+    return (<span
+      {...containerProp}
       className={classNames(
-      `${prefix}${props.className}`,
-      {[`${prefix}${props.className}-hidden`]: !this.state.isOpen})}>
+        `${props.className}`,
+        {[`${prefix}${props.className}`]: prefix},
+        {[`${props.className}-hidden`]: !this.state.isOpen})
+      }>
       {this.getDropdownToggle(children[0])}
       {this.getDropdownContent(children[1])}
-    </span>
+    </span>);
   }
 }
