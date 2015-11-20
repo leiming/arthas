@@ -4,20 +4,21 @@ import classNames from 'classnames';
 import invariant from 'invariant';
 import $ from 'jquery';
 
+//require('./dropdown.less')
+
 export default class Dropdown extends React.Component {
 
   static defaultProps = {
-    className: 'dropdown',
+    componentClassName: 'dropdown',
     activeMethod: 'click',
     defaultVisible: false,
     contentStyle: {},
     toggleStyle: {},
-    onVisibleChange: () => {
-    }
+    onVisibleChange: () => {}
   }
 
   static propTypes = {
-    className: React.PropTypes.string,
+    componentClassName: React.PropTypes.string,
     activeMethod: React.PropTypes.oneOf(['click', 'hover']),
     defaultVisible: React.PropTypes.bool,
     contentStyle: React.PropTypes.object,
@@ -47,8 +48,8 @@ export default class Dropdown extends React.Component {
     const prefix = props.prefix || '';
 
     const toggleProp = {
-      'className': classNames(`${props.className}-toggle`,
-        {[`${prefix}${props.className}-toggle`]: prefix})
+      'className': classNames(`${props.componentClassName}-toggle`,
+        {[`${prefix}${props.componentClassName}-toggle`]: prefix})
     };
 
     if (props.activeMethod.indexOf('click') !== -1) {
@@ -64,8 +65,8 @@ export default class Dropdown extends React.Component {
 
     const contentProps = {
       className: classNames(
-        `${props.className}-content`,
-        {[`${prefix}${props.className}-content`]: prefix}
+        `${props.componentClassName}-content`,
+        {[`${prefix}${props.componentClassName}-content`]: prefix}
       )
     };
 
@@ -136,8 +137,9 @@ export default class Dropdown extends React.Component {
       {...containerProp}
       className={classNames(
         `${props.className}`,
-        {[`${prefix}${props.className}`]: prefix},
-        {[`${props.className}-hidden`]: !this.state.isOpen})
+        `${props.componentClassName}`,
+        {[`${prefix}${props.componentClassName}`]: prefix},
+        {[`${props.componentClassName}-hidden`]: !this.state.isOpen})
       }>
       {this.getDropdownToggle(children[0])}
       {this.getDropdownContent(children[1])}
