@@ -25,10 +25,14 @@ export default class Sample extends React.Component {
     this.setState({isOpen: !this.state.isOpen})
   };
 
+  onVisibleChange = () => {
+
+  }
+
   render() {
     return (
-      <Dropdown activeMethod='click'>
-        <a className={'customToggle'}>aaaa
+      <Dropdown activeMethod='click' defaultVisible={true}>
+        <a className={'customToggle'} onVisibleChange={this.onVisibleChange}>aaaa
           <i>11</i>
         </a>
         <div className={'customContent'}>
