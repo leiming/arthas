@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import invariant from 'invariant'
-import $ from 'jquery'
 
 //require('./dropdown.less')
 
@@ -89,6 +88,13 @@ export default class Dropdown extends React.Component {
   }
 
   onDocumentClick = (e) => {
+    // 此处留有个关闭按钮的 hook:
+    // 当点击的节点 class 中存在 "dropdown-close" 时, 关闭按钮
+    if (e.target.classList.contains("dropdown-close")) {
+      this.setVisible(false)
+      return
+    }
+
     const componentNode = ReactDOM.findDOMNode(this)
     const isContain = componentNode.contains(e.target)
     if (!isContain) {
