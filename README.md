@@ -15,3 +15,12 @@ npm install arthas --save-dev
 
 After npm install, you'll find compiled versions in the `/lib` folder, 
 all the .jsx files in the `/src` folder in [Github Repo](https://github.com/leiming/arthas).
+
+
+## Usage
+
+Debug example:
+
+```javascript
+gulp --example=Dropdown
+```

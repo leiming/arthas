@@ -52,7 +52,8 @@
     "run-sequence": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.3.0"
+    "watchify": "^3.3.0",
+    "yargs": "^3.31.0"
   },
   "browserify-shim": {
     "$": "jQuery",
